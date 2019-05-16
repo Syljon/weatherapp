@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-const initialState = { city: "" };
+const initialState = {};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -7,7 +7,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cityName: action.data.city_name,
-        weatherIconCode: action.data.weather.icon
+        weatherIconCode: action.data.weather.icon,
+        temperature: action.data.temp
       };
     default:
       return state;

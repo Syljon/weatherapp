@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Form from "./components/Form/Form";
 import "./App.css";
 import * as actions from "./store/actions";
+import PropTypes from "prop-types";
 class App extends Component {
   state = {
     searchCityName: ""
@@ -36,26 +37,27 @@ class App extends Component {
     this.setState({ searchCityName: e.target.value });
   };
   render() {
-    console.log(this.props.weatherIconCode);
+    const { weatherIconCode, cityName, temperature } = this.props;
+    const { searchCityName } = this.state;
     return (
       <div className="App">
         <h1 className="App-heading">Weather App</h1>
         <Form
           submit={this.onSubmitFormHanlder}
           changed={this.onInputChangeHandler}
-          value={this.state.searchCityName}
+          value={searchCityName}
         />
-        {this.props.weatherIconCode ? (
+        {weatherIconCode ? (
           <div
             className="Img"
             style={{
-              backgroundImage: `url(https://www.weatherbit.io/static/img/icons/${
-                this.props.weatherIconCode
-              }.png)`
+              backgroundImage: `url(https://www.weatherbit.io/static/img/icons/${weatherIconCode}.png)`
             }}
           />
         ) : null}
-        <h2>{this.props.cityName}</h2>
+        <h2>
+          {cityName} {temperature}
+        </h2>
       </div>
     );
   }
@@ -63,7 +65,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     cityName: state.cityName,
-    weatherIconCode: state.weatherIconCode
+    weatherIconCode: state.weatherIconCode,
+    temperature: state.temperature
   };
 };
 
@@ -72,6 +75,13 @@ const mapDispatchToProps = dispatch => {
     onSubmit: city => dispatch(actions.fetchData(city))
   };
 };
+
+App.propTypes = {
+  cityName: PropTypes.string,
+  weatherIconCode: PropTypes.string,
+  temperature: PropTypes.number
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
