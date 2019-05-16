@@ -6,7 +6,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_DATA_SUCCESS:
       return {
         ...state,
-        city: action.city
+        cityName: action.data.city_name,
+        weatherIconCode: action.data.weather.icon
       };
     default:
       return state;

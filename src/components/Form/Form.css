@@ -1,0 +1,22 @@
+.Form {
+  width: 100%;
+  padding: 2rem 0;
+}
+.Input {
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 3px solid #034999;
+  transition: border 0.2s ease-in;
+}
+.Input::placeholder {
+  color: white;
+}
+.Input:focus {
+  border-color: white;
+  color: white;
+}

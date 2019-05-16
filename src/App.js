@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import Form from "./components/Form/Form";
 import "./App.css";
 import * as actions from "./store/actions";
 class App extends Component {
+  state = {
+    searchCityName: ""
+  };
   componentDidMount() {
     // axios
     //   .get("https://api.weatherbit.io/v2.0/current?", {
@@ -22,25 +25,45 @@ class App extends Component {
     //     });
     //   })
     //   .catch(err => console.log(err));
+    console.log("_____");
     this.props.onSubmit("Londyn");
   }
+  onSubmitFormHanlder = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.searchCityName);
+  };
+  onInputChangeHandler = e => {
+    this.setState({ searchCityName: e.target.value });
+  };
   render() {
+    console.log(this.props.weatherIconCode);
     return (
       <div className="App">
-        {/* {this.state.image ? (
+        <h1 className="App-heading">Weather App</h1>
+        <Form
+          submit={this.onSubmitFormHanlder}
+          changed={this.onInputChangeHandler}
+          value={this.state.searchCityName}
+        />
+        {this.props.weatherIconCode ? (
           <div
             className="Img"
-            style={{ backgroundImage: `url(${this.state.image})` }}
+            style={{
+              backgroundImage: `url(https://www.weatherbit.io/static/img/icons/${
+                this.props.weatherIconCode
+              }.png)`
+            }}
           />
-        ) : null} */}
-        <h1>{this.props.cityName}</h1>
+        ) : null}
+        <h2>{this.props.cityName}</h2>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    cityName: state.city
+    cityName: state.cityName,
+    weatherIconCode: state.weatherIconCode
   };
 };
 
