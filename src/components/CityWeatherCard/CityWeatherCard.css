@@ -1,13 +1,14 @@
 .Card {
   background-color: #fff;
   width: 60%;
-  padding: 0.5rem 2rem;
+  padding: 3rem 2rem 1rem;
   margin: 0 auto;
   border-radius: 1rem;
   position: relative;
 }
 h2 {
   margin: 0 0 1rem;
+  font-size: 2rem;
 }
 button {
   position: absolute;
@@ -18,4 +19,10 @@ button {
   padding: 0.25rem 0.5rem;
   background-color: #106bd4;
   border: none;
+}
+
+@media (min-width: 500px) {
+  .Card {
+    width: 300px;
+  }
 }

@@ -7,7 +7,6 @@ export function getData(city) {
         key: "1274cb1601cc4f95ac81a20298c26e00",
         city: city,
         units: "M"
-        // lang: "pl"
       }
     })
     .then(res => {

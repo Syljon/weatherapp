@@ -24,7 +24,6 @@ class CityWeatherCard extends Component {
       pressure,
       wind
     } = this.props;
-
     const moreInfo = (
       <>
         <h2 style={{ borderTop: "2px dashed black", paddingTop: "1rem" }}>
@@ -37,7 +36,7 @@ class CityWeatherCard extends Component {
         </h2>
       </>
     );
-    const card = (
+    return (
       <div className="Card">
         {weatherIconCode ? (
           <div
@@ -51,12 +50,11 @@ class CityWeatherCard extends Component {
         <h2>{temperature} &deg;C</h2>
         <h2>{weatherDescription}</h2>
         <button onClick={this.onClickHandler}>
-          {this.state.show ? `Show` : `Hide`}
+          {this.state.show ? `Hide` : `Show`}
         </button>
         {this.state.show ? moreInfo : null}
       </div>
     );
-    return <>{this.props.cityName ? card : null}</>;
   }
 }
 
@@ -79,6 +77,8 @@ CityWeatherCard.propTypes = {
   temperature: PropTypes.number,
   clouds: PropTypes.number,
   humidity: PropTypes.number,
-  pressure: PropTypes.number
+  pressure: PropTypes.number,
+  wind: PropTypes.object
 };
+
 export default connect(mapStateToProps)(CityWeatherCard);

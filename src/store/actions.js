@@ -8,7 +8,10 @@ export const fetchData = city => {
         console.log(response);
         dispatch(fetchDataSuccess(response));
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => {
+        dispatch(fetchDataFAIL());
+        console.error("Action Error:", error);
+      });
   };
 };
 
@@ -17,4 +20,12 @@ export const fetchDataSuccess = data => {
     type: actionTypes.FETCH_DATA_SUCCESS,
     data: data
   };
+};
+export const fetchDataFAIL = err => {
+  return {
+    type: actionTypes.FETCH_DATA_FAIL
+  };
+};
+export const clearStore = () => {
+  return { type: actionTypes.CLEAR_STORE };
 };

@@ -16,8 +16,13 @@ const reducer = (state = initialState, action) => {
         wind: {
           windDirection: action.data.wind_cdir,
           windSpeed: action.data.wind_spd
-        }
+        },
+        error: false
       };
+    case actionTypes.FETCH_DATA_FAIL:
+      return { ...state, error: true };
+    case actionTypes.CLEAR_STORE:
+      return initialState;
     default:
       return state;
   }
