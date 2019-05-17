@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-const initialState = {};
+const initialState = { showHowToUse: false };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -21,6 +21,8 @@ const reducer = (state = initialState, action) => {
       };
     case actionTypes.FETCH_DATA_FAIL:
       return { ...state, error: true };
+    case actionTypes.CHANGE_HOW_TO_USE_VISIBILITY:
+      return { ...state, showHowToUse: !state.showHowToUse };
     case actionTypes.CLEAR_STORE:
       return initialState;
     default:

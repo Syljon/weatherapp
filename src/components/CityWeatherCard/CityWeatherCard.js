@@ -49,7 +49,7 @@ class CityWeatherCard extends Component {
         <h2>{cityName}</h2>
         <h2>{temperature} &deg;C</h2>
         <h2>{weatherDescription}</h2>
-        <button onClick={this.onClickHandler}>
+        <button className="showMore" onClick={this.onClickHandler}>
           {this.state.show ? `Hide` : `Show`}
         </button>
         {this.state.show ? moreInfo : null}

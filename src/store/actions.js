@@ -29,3 +29,7 @@ export const fetchDataFAIL = err => {
 export const clearStore = () => {
   return { type: actionTypes.CLEAR_STORE };
 };
+
+export const changeHowtoUseVisibility = () => {
+  return { type: actionTypes.CHANGE_HOW_TO_USE_VISIBILITY };
+};

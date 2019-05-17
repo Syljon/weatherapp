@@ -6,6 +6,7 @@
   overflow: auto;
   padding-bottom: 2rem;
   background: linear-gradient(130deg, #106bd4 40%, #014594);
+  position: relative;
 }
 .App-heading {
   font-size: 3.5rem;

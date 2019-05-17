@@ -1,0 +1,17 @@
+.HelpIcone {
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  background-color: transparent;
+  border-radius: 50%;
+  font-size: 4rem;
+}
+@media (min-width: 500px) {
+  .HelpIcone {
+    right: 30px;
+    bottom: 35px;
+  }
+}

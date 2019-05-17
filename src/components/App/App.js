@@ -7,6 +7,7 @@ import Form from "../Form/Form";
 import CityWeatherCard from "../CityWeatherCard/CityWeatherCard";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ModalHowToUse from "../ModalHowToUse/ModalHowToUse";
+import HelpIcone from "../HelpIcone/HelpIcone";
 import "./App.css";
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
   };
   render() {
     const { searchCityName } = this.state;
-    const { cityName, error } = this.props;
+    const { cityName, error, showHowToUse } = this.props;
     return (
       <div className="App">
         <h1 className="App-heading">Weather App</h1>
@@ -34,13 +35,17 @@ class App extends Component {
         />
         {cityName ? <CityWeatherCard /> : null}
         {error ? <ErrorMessage /> : null}
-        <ModalHowToUse />
+        {showHowToUse ? <ModalHowToUse /> : <HelpIcone />}
       </div>
     );
   }
 }
 const mapStateToProps = state => {
-  return { cityName: state.cityName, error: state.error };
+  return {
+    cityName: state.cityName,
+    error: state.error,
+    showHowToUse: state.showHowToUse
+  };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -52,7 +57,8 @@ const mapDispatchToProps = dispatch => {
 
 App.propTypes = {
   cityName: PropTypes.string,
-  error: PropTypes.bool
+  error: PropTypes.bool,
+  showHowToUse: PropTypes.bool
 };
 
 export default connect(
