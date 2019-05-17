@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from "./store/actions";
+import * as actions from "../../store/actions";
 import PropTypes from "prop-types";
 
-import Form from "./components/Form/Form";
-import CityWeatherCard from "./components/CityWeatherCard/CityWeatherCard";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import Form from "../Form/Form";
+import CityWeatherCard from "../CityWeatherCard/CityWeatherCard";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ModalHowToUse from "../ModalHowToUse/ModalHowToUse";
 import "./App.css";
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
         />
         {cityName ? <CityWeatherCard /> : null}
         {error ? <ErrorMessage /> : null}
+        <ModalHowToUse />
       </div>
     );
   }

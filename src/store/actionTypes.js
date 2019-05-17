@@ -1,3 +1,4 @@
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const FETCH_DATA_FAIL = "FETCH_DATA_FAIL";
 export const CLEAR_STORE = "CLEAR_STORE";
+export const HOW_TO_USE_SWITCH = "HOW_TO_USE_SWITCH";
