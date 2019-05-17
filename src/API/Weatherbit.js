@@ -5,7 +5,8 @@ export function getData(city) {
     .get("https://api.weatherbit.io/v2.0/current?", {
       params: {
         key: "1274cb1601cc4f95ac81a20298c26e00",
-        city: city
+        city: city,
+        units: "M"
       }
     })
     .then(res => {

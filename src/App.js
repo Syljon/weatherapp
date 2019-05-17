@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import Form from "./components/Form/Form";
 import "./App.css";
 import * as actions from "./store/actions";
+import PropTypes from "prop-types";
 class App extends Component {
+  state = {
+    searchCityName: ""
+  };
   componentDidMount() {
     // axios
     //   .get("https://api.weatherbit.io/v2.0/current?", {
@@ -22,25 +26,47 @@ class App extends Component {
     //     });
     //   })
     //   .catch(err => console.log(err));
+    console.log("_____");
     this.props.onSubmit("Londyn");
   }
+  onSubmitFormHanlder = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.searchCityName);
+  };
+  onInputChangeHandler = e => {
+    this.setState({ searchCityName: e.target.value });
+  };
   render() {
+    const { weatherIconCode, cityName, temperature } = this.props;
+    const { searchCityName } = this.state;
     return (
       <div className="App">
-        {/* {this.state.image ? (
+        <h1 className="App-heading">Weather App</h1>
+        <Form
+          submit={this.onSubmitFormHanlder}
+          changed={this.onInputChangeHandler}
+          value={searchCityName}
+        />
+        {weatherIconCode ? (
           <div
             className="Img"
-            style={{ backgroundImage: `url(${this.state.image})` }}
+            style={{
+              backgroundImage: `url(https://www.weatherbit.io/static/img/icons/${weatherIconCode}.png)`
+            }}
           />
-        ) : null} */}
-        <h1>{this.props.cityName}</h1>
+        ) : null}
+        <h2>
+          {cityName} {temperature}
+        </h2>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    cityName: state.city
+    cityName: state.cityName,
+    weatherIconCode: state.weatherIconCode,
+    temperature: state.temperature
   };
 };
 
@@ -49,6 +75,13 @@ const mapDispatchToProps = dispatch => {
     onSubmit: city => dispatch(actions.fetchData(city))
   };
 };
+
+App.propTypes = {
+  cityName: PropTypes.string,
+  weatherIconCode: PropTypes.string,
+  temperature: PropTypes.number
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
