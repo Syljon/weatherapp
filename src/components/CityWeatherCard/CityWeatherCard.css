@@ -1,0 +1,21 @@
+.Card {
+  background-color: #fff;
+  width: 60%;
+  padding: 0.5rem 2rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  position: relative;
+}
+h2 {
+  margin: 0 0 1rem;
+}
+button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.7rem;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  background-color: #106bd4;
+  border: none;
+}

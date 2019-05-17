@@ -8,7 +8,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         cityName: action.data.city_name,
         weatherIconCode: action.data.weather.icon,
-        temperature: action.data.temp
+        temperature: action.data.temp,
+        weatherDescription: action.data.weather.description,
+        cloudCoverage: action.data.clouds,
+        humidity: action.data.rh,
+        pressure: action.data.pres,
+        wind: {
+          windDirection: action.data.wind_cdir,
+          windSpeed: action.data.wind_spd
+        }
       };
     default:
       return state;

@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Form from "./components/Form/Form";
-import "./App.css";
 import * as actions from "./store/actions";
 import PropTypes from "prop-types";
+
+import Form from "./components/Form/Form";
+import CityWeatherCard from "./components/CityWeatherCard/CityWeatherCard";
+
+import "./App.css";
+
 class App extends Component {
   state = {
     searchCityName: ""
@@ -37,7 +41,6 @@ class App extends Component {
     this.setState({ searchCityName: e.target.value });
   };
   render() {
-    const { weatherIconCode, cityName, temperature } = this.props;
     const { searchCityName } = this.state;
     return (
       <div className="App">
@@ -47,27 +50,13 @@ class App extends Component {
           changed={this.onInputChangeHandler}
           value={searchCityName}
         />
-        {weatherIconCode ? (
-          <div
-            className="Img"
-            style={{
-              backgroundImage: `url(https://www.weatherbit.io/static/img/icons/${weatherIconCode}.png)`
-            }}
-          />
-        ) : null}
-        <h2>
-          {cityName} {temperature}
-        </h2>
+        <CityWeatherCard />
       </div>
     );
   }
 }
 const mapStateToProps = state => {
-  return {
-    cityName: state.cityName,
-    weatherIconCode: state.weatherIconCode,
-    temperature: state.temperature
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {
