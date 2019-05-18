@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import PropTypes from "prop-types";
 
-import "./ModalHowToUse.css";
+import "./Modal.css";
 
 ModalHowToUse.propTypes = {
   closeModal: PropTypes.func.isRequired

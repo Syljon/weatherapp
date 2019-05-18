@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import PropTypes from "prop-types";
 
-import Form from "../Form/Form";
-import CityWeatherCard from "../CityWeatherCard/CityWeatherCard";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import ModalHowToUse from "../ModalHowToUse/ModalHowToUse";
-import HelpIcone from "../HelpIcone/HelpIcone";
+import Form from "../CitySearch/Form";
+import CityWeatherCard from "../CityWeather/Card";
+import ErrorMessage from "../Error/Message";
+import ModalHowToUse from "../HowToUse/Modal";
+import HelpIcone from "../HelpIcone/Icone";
 
 import "./App.css";
 
@@ -48,8 +48,8 @@ class App extends Component {
           changed={this.onInputChangeHandler}
           value={searchCityName}
         />
-        {cityName ? <CityWeatherCard /> : null}
-        {error ? <ErrorMessage /> : null}
+        {cityName && <CityWeatherCard />}
+        {error && <ErrorMessage />}
         {showHowToUse ? <ModalHowToUse /> : <HelpIcone />}
       </div>
     );

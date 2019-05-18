@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import PropTypes from "prop-types";
-import "./HelpIcone.css";
+import "./Icone.css";
 HelpIcone.propTypes = {
   showHideModal: PropTypes.func.isRequired
 };
