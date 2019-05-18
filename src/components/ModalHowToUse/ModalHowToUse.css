@@ -3,7 +3,7 @@
   height: 100%;
   background-color: rgba(3, 3, 3, 0.7);
   z-index: 10;
-  position: absolute;
+  position: fixed;
   display: flex;
   top: 0;
   left: 0;
@@ -11,20 +11,34 @@
   justify-content: center;
 }
 
-.Modal {
+.ModalHowToUse_modal {
   padding: 3rem;
   position: relative;
-  width: 70%;
+  width: 90%;
+  z-index: 10;
   background-color: #fff;
   border: 2px solid black;
 }
-.btn {
+
+.ModalHowToUse_heading {
+  margin: 0 0 2rem;
   font-size: 2rem;
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  left: auto;
-  border-radius: 1rem;
+}
+
+.ModalHowToUse_instrucion {
+  font-size: 1.6rem;
+  text-align: left;
+  line-height: 1.5;
+}
+@media (min-width: 500px) {
+  .ModalHowToUse_modal {
+    width: 450px;
+  }
+  .ModalHowToUse_heading {
+    font-size: 4rem;
+  }
+
+  .ModalHowToUse_instrucion {
+    font-size: 2rem;
+  }
 }

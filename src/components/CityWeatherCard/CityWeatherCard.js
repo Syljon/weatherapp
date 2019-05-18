@@ -1,18 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./CityWeatherCard.css";
-
 import PropTypes from "prop-types";
+
+import "./CityWeatherCard.css";
 
 class CityWeatherCard extends Component {
   state = {
     show: false
   };
+
+  static propTypes = {
+    cityName: PropTypes.string.isRequired,
+    weatherIconCode: PropTypes.string.isRequired,
+    weatherDescription: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    clouds: PropTypes.number,
+    humidity: PropTypes.number,
+    pressure: PropTypes.number,
+    wind: PropTypes.object
+  };
+
   onClickHandler = () => {
     this.setState(prevState => ({
       show: !prevState.show
     }));
   };
+
   render() {
     const {
       cityName,
@@ -26,7 +39,7 @@ class CityWeatherCard extends Component {
     } = this.props;
     const moreInfo = (
       <>
-        <h2 style={{ borderTop: "2px dashed black", paddingTop: "1rem" }}>
+        <h2 style={{ borderTop: "2px dashed black", paddingTop: "1.5rem" }}>
           Cloud coverage: {cloudCoverage}%
         </h2>
         <h2>Humidity : {humidity}%</h2>
@@ -37,7 +50,7 @@ class CityWeatherCard extends Component {
       </>
     );
     return (
-      <div className="Card">
+      <div className="Card" onClick={this.onClickHandler}>
         {weatherIconCode ? (
           <div
             className="Img"
@@ -48,11 +61,28 @@ class CityWeatherCard extends Component {
         ) : null}
         <h2>{cityName}</h2>
         <h2>{temperature} &deg;C</h2>
-        <h2>{weatherDescription}</h2>
-        <button className="showMore" onClick={this.onClickHandler}>
-          {this.state.show ? `Hide` : `Show`}
-        </button>
-        {this.state.show ? moreInfo : null}
+        <h2
+          style={{
+            paddingBottom: "1.5rem"
+          }}
+        >
+          {weatherDescription}
+        </h2>
+        {this.state.show ? (
+          moreInfo
+        ) : (
+          <p
+            style={{
+              color: "#333",
+              fontSize: "1.1rem",
+              position: "absolute",
+              bottom: "-6px",
+              right: "10px"
+            }}
+          >
+            Tap for More ...
+          </p>
+        )}
       </div>
     );
   }
@@ -69,16 +99,6 @@ const mapStateToProps = state => {
     pressure: state.pressure,
     wind: state.wind
   };
-};
-CityWeatherCard.propTypes = {
-  cityName: PropTypes.string,
-  weatherIconCode: PropTypes.string,
-  weatherDescription: PropTypes.string,
-  temperature: PropTypes.number,
-  clouds: PropTypes.number,
-  humidity: PropTypes.number,
-  pressure: PropTypes.number,
-  wind: PropTypes.object
 };
 
 export default connect(mapStateToProps)(CityWeatherCard);

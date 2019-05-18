@@ -31,5 +31,6 @@ export const clearStore = () => {
 };
 
 export const changeHowtoUseVisibility = () => {
+  console.log("changeHowtoUseVisibility");
   return { type: actionTypes.CHANGE_HOW_TO_USE_VISIBILITY };
 };

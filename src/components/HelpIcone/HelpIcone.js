@@ -1,18 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
+import PropTypes from "prop-types";
 import "./HelpIcone.css";
-const HelpIcone = props => {
+HelpIcone.propTypes = {
+  showHideModal: PropTypes.func.isRequired
+};
+function HelpIcone({ showHideModal }) {
   return (
-    <button className="HelpIcone" onClick={props.showModal}>
+    <button className="HelpIcone" onClick={showHideModal}>
       ?
     </button>
   );
-};
+}
+
 const mapDispatchToProps = dispatch => {
   return {
-    showModal: () => {
-      console.log("DDDD");
+    showHideModal: () => {
       dispatch(actions.changeHowtoUseVisibility());
     }
   };
