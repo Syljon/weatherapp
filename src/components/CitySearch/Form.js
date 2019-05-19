@@ -1,8 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import "./Form.css";
-const Form = props => {
-  const { submit, changed, value } = props;
+
+Form.propTypes = {
+  submit: PropTypes.func.isRequired,
+  changed: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string
+};
+
+function Form({ submit, changed, value, placeholder }) {
   return (
     <form onSubmit={submit}>
       <div className="Form">
@@ -11,15 +19,10 @@ const Form = props => {
           className="Input"
           onChange={changed}
           value={value}
-          placeholder="Enter city ..."
+          placeholder={placeholder ? placeholder : "Enter text ..."}
         />
       </div>
     </form>
   );
-};
-Form.propTypes = {
-  submit: PropTypes.func,
-  changed: PropTypes.func,
-  value: PropTypes.string
-};
+}
 export default Form;

@@ -1,0 +1,44 @@
+.ModalHowToUse {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(3, 3, 3, 0.7);
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.ModalHowToUse_modal {
+  padding: 3rem;
+  position: relative;
+  width: 90%;
+  z-index: 10;
+  background-color: #fff;
+  border: 2px solid black;
+}
+
+.ModalHowToUse_heading {
+  margin: 0 0 2rem;
+  font-size: 2rem;
+}
+
+.ModalHowToUse_instrucion {
+  font-size: 1.6rem;
+  text-align: left;
+  line-height: 1.5;
+}
+@media (min-width: 500px) {
+  .ModalHowToUse_modal {
+    width: 450px;
+  }
+  .ModalHowToUse_heading {
+    font-size: 4rem;
+  }
+
+  .ModalHowToUse_instrucion {
+    font-size: 2rem;
+  }
+}

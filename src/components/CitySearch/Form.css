@@ -9,6 +9,8 @@
   color: white;
   outline: none;
   border: none;
+  border-radius: 0;
+  overflow: hidden;
   background-color: transparent;
   border-bottom: 3px solid #034999;
   transition: border 0.2s ease-in;
@@ -19,4 +21,10 @@
 .Input:focus {
   border-color: white;
   color: white;
+}
+
+@media (min-width: 500px) {
+  .Input {
+    font-size: 3rem;
+  }
 }

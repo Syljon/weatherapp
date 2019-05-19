@@ -11,12 +11,6 @@ export function getData(city) {
     })
     .then(res => {
       return res.data.data[0];
-      //   console.log(res.data.data[0].weather.icon);
-      //   this.setState({
-      //     image: `https://www.weatherbit.io/static/img/icons/${
-      //       res.data.data[0].weather.icon
-      //     }.png`
-      //   });
     })
     .catch(err => console.log(err));
 }

@@ -1,0 +1,28 @@
+.Card {
+  background-color: #fff;
+  width: 70%;
+  padding: 3rem 2rem 1.4rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  position: relative;
+}
+h2 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+.showMore {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.7rem;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  background-color: #106bd4;
+  border: none;
+}
+
+@media (min-width: 500px) {
+  .Card {
+    width: 300px;
+  }
+}
