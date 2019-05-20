@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Weather App
 
-This is a web application for displaying weather in a given city. If you 
+This is a web application for displaying weather in a given city.
 
 ## Getting Started
 
